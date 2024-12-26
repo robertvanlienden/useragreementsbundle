@@ -11,6 +11,13 @@
             "RobertvanLienden\\UserAgreements\\": "src/"
         }
     },
+    "extra": {
+        "symfony": {
+            "bundle": {
+                "RobertvanLienden\\UserAgreements": ["all"]
+            }
+        }
+    },
     "authors": [
         {
             "name": "Robert van Lienden"
