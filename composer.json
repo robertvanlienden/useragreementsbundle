@@ -1,0 +1,19 @@
+{
+    "name": "robertvanlienden/symfonyuseragreements",
+    "description": "User agreements bundle make simple",
+    "type": "symfony-bundle",
+    "require": {
+        "symfony/framework-bundle": "^6.4"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Robertvanlienden\\Symfonyuseragreements\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Robert van Lienden"
+        }
+    ]
+}
