@@ -3,7 +3,7 @@
     "description": "User agreements made simple",
     "type": "symfony-bundle",
     "require": {
-        "symfony/framework-bundle": "^6.4"
+        "symfony/framework-bundle": "^6.4 || ^7.1"
     },
     "license": "MIT",
     "autoload": {
