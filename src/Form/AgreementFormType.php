@@ -7,10 +7,11 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class AgreementFormType extends AbstractType
 {
-    public function __construct(private AgreementService $agreementService)
+    public function __construct(private AgreementService $agreementService, private UrlGeneratorInterface $urlGenerator)
     {
     }
 
@@ -19,11 +20,13 @@ class AgreementFormType extends AbstractType
         $agreements = $this->agreementService->getAgreements();
 
         foreach ($agreements as $agreement) {
+            $url = $this->urlGenerator->generate($agreement['route_name']);
             $builder->add(
-                'agree_' . strtolower(str_replace(' ', '_', $agreement['title'])),
+                'agree_' . strtolower(str_replace(' ', '_', $agreement['label'])),
                 CheckboxType::class,
                 [
-                    'label' => $agreement['title'],
+                    'label' => sprintf('<a href="%s">%s</a>', $url, $agreement['label']),
+                    'label_html' => true,
                     'required' => true,
                 ]
             );
