@@ -13,8 +13,8 @@ class UserAgreementsBundle extends AbstractBundle
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
     {
         $container->import('Resources/config/services.yaml');
-
         $builder->setParameter('user_agreements', $config);
+        $builder->setParameter('user_agreements.user_entity', $config['user_entity']);
     }
 
     public function configure(DefinitionConfigurator $definition): void
@@ -22,6 +22,9 @@ class UserAgreementsBundle extends AbstractBundle
         // Configure agreements
         $definition->rootNode()
                 ->children()
+                    ->scalarNode('user_entity')
+                        ->defaultValue('App\Entity\User')
+                    ->end()
                     ->arrayNode('agreements')
                         ->arrayPrototype()
                             ->children()

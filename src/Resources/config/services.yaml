@@ -6,3 +6,8 @@ services:
     resource: '../../'
     exclude:
       - '../../Entity/'
+  RobertvanLienden\UserAgreements\EventListener\DoctrineMetadataListener:
+    arguments:
+      $userEntityClass: '%user_agreements.user_entity%'  # Pass the user entity class dynamically
+    tags:
+      - { name: doctrine.event_listener, event: loadClassMetadata }
