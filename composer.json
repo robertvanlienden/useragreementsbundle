@@ -1,5 +1,5 @@
 {
-    "name": "robertvanlienden/useragreements",
+    "name": "robertvanlienden/useragreementsbundle",
     "description": "User agreements made simple",
     "type": "symfony-bundle",
     "require": {

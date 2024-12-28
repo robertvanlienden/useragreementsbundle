@@ -27,7 +27,7 @@ class AgreementFormType extends AbstractType
                 [
                     'label' => sprintf('<a href="%s">%s</a>', $url, $agreement['label']),
                     'label_html' => true,
-                    'required' => true,
+                    'required' => $agreement['required'],
                 ]
             );
         }

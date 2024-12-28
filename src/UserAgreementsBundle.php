@@ -2,6 +2,7 @@
 
 namespace RobertvanLienden\UserAgreements;
 
+use RobertvanLienden\UserAgreements\DependencyInjection\DoctrineMappingPass;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -18,6 +19,7 @@ class UserAgreementsBundle extends AbstractBundle
 
     public function configure(DefinitionConfigurator $definition): void
     {
+        // Configure agreements
         $definition->rootNode()
                 ->children()
                     ->arrayNode('agreements')
@@ -27,12 +29,15 @@ class UserAgreementsBundle extends AbstractBundle
                                 ->isRequired()
                                 ->cannotBeEmpty()
                                 ->end()
-                                ->scalarNode('version')
-                                ->defaultValue('1.0')
-                                ->end()
                                 ->scalarNode('route_name')
                                 ->isRequired()
                                 ->cannotBeEmpty()
+                                ->end()
+                                ->booleanNode('required')
+                                ->isRequired()
+                                ->end()
+                                ->scalarNode('version')
+                                ->defaultValue('1.0')
                                 ->end()
                         ->end()
                     ->end()
