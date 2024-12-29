@@ -6,13 +6,20 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 class AgreementService
 {
-    public function __construct(ContainerBagInterface $containerBag, private array $config = [])
+    public function __construct(ContainerBagInterface $containerBag, private array $agreements = [])
     {
-        $this->config = $containerBag->get('user_agreements');
+        $this->agreements = $containerBag->get('user_agreements')['agreements'];
     }
 
     public function getAgreements(): array
     {
-        return $this->config['agreements'];
+        return $this->agreements;
+    }
+
+    public function findAgreement(string $label): ?array
+    {
+        $arrayKey = array_search(strtolower($label), array_map('strtolower', array_column($this->agreements, 'label')));
+
+        return $this->agreements[$arrayKey] ?? null;
     }
 }
