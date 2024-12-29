@@ -7,7 +7,8 @@ use RobertvanLienden\UserAgreements\Repository\UserAgreementRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserAgreementRepository::class)]
-class UserAgreement {
+class UserAgreement
+{
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -26,7 +27,6 @@ class UserAgreement {
     #[ORM\JoinColumn(name: 'user_id', nullable: true)]
     private ?UserInterface $user = null;
 
-    
     public function getId(): ?int
     {
         return $this->id;
