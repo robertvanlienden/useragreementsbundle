@@ -19,10 +19,14 @@ class UserAgreement {
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $version = null;
 
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private ?\DateTimeInterface $agreedAt = null;
+
     #[ORM\ManyToOne(inversedBy: 'user_agreement')]
     #[ORM\JoinColumn(name: 'user_id', nullable: true)]
     private ?UserInterface $user = null;
 
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +55,16 @@ class UserAgreement {
     public function setVersion(?string $version): void
     {
         $this->version = $version;
+    }
+
+    public function getAgreedAt(): ?\DateTimeInterface
+    {
+        return $this->agreedAt;
+    }
+
+    public function setAgreedAt(?\DateTimeInterface $agreedAt): void
+    {
+        $this->agreedAt = $agreedAt;
     }
 
     public function getUser(): ?UserInterface

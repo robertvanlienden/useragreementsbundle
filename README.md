@@ -60,7 +60,7 @@ Hating this? Feel free to contribute some PR!
 ## To-do
 - [x] Make user agreements form type and make them configurable
 - [x] Configure UserAgreement entity with dynamic settable User relation (OneToMany)
-- [ ] Add DateTime to store when the agreement is agree'ed
+- [x] Add DateTime to store when the agreement is agree'ed
 - [ ] Made option to save accepted agreements within the User entity (Service to handle this?)
 - [ ] Write documentation for this (maybe seperate from the README.md)
 - [ ] Add codestyling
