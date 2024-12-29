@@ -51,6 +51,10 @@ class AgreementHandlingService
     private function createUserAgreements(array $agreements, UserInterface $user): void
     {
         foreach ($agreements as $key => $value) {
+            if (!$value) {
+                continue;
+            }
+
             $agreementFromConfig = $this->agreementService->findAgreement($key);
 
             if (empty($agreementFromConfig)) {
