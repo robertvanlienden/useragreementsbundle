@@ -24,7 +24,7 @@ class AgreementFormType extends AbstractType
         foreach ($agreements as $agreement) {
             $url = $this->urlGenerator->generate($agreement['route_name']);
             $builder->add(
-                'agree_' . strtolower(str_replace(' ', '_', $agreement['label'])),
+                $agreement['id'],
                 CheckboxType::class,
                 [
                     'label' => sprintf('<a href="%s">%s</a>', $url, $agreement['label']),

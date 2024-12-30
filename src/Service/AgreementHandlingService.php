@@ -29,27 +29,11 @@ class AgreementHandlingService
             );
         }
 
-        $agreements = $this->normalizeAgreementsLabels($agreements);
         $this->createUserAgreements($agreements, $user);
 
         if ($flushEntities) {
             $this->entityManager->flush();
         }
-    }
-
-    private function normalizeAgreementsLabels(array $agreements): array
-    {
-        $normalizedAgreements = [];
-
-        foreach ($agreements as $key => $value) {
-            // Remove the 'agree_' prefix from the key
-            $normalizedKey = substr($key, 6);
-            // Replace underscores with spaces in the key
-            $normalizedKey = str_replace('_', ' ', $normalizedKey);
-            $normalizedAgreements[$normalizedKey] = $value;
-        }
-
-        return $normalizedAgreements;
     }
 
     private function createUserAgreements(array $agreements, UserInterface $user): void
@@ -66,6 +50,7 @@ class AgreementHandlingService
             }
 
             $agreement = new UserAgreement();
+            $agreement->setAgreementId($agreementFromConfig['id']);
             $agreement->setLabel($agreementFromConfig['label']);
             $agreement->setVersion($agreementFromConfig['version']);
             $agreement->setUser($user);
