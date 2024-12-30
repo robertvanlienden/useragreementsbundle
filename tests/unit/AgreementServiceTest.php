@@ -32,7 +32,6 @@ class AgreementServiceTest extends TestCase
     {
         $agreements = $this->agreementService->getAgreements();
 
-        $this->assertIsArray($agreements);
         $this->assertCount(2, $agreements);
         $this->assertArrayHasKey('label', $agreements[0]);
         $this->assertArrayHasKey('content', $agreements[0]);

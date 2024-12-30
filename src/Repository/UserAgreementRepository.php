@@ -4,7 +4,7 @@ namespace RobertvanLienden\UserAgreements\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use UserAgreements\Entity\UserAgreement;
+use RobertvanLienden\UserAgreements\Entity\UserAgreement;
 
 /**
  * @extends ServiceEntityRepository<UserAgreement>

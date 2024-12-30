@@ -53,6 +53,10 @@ function task:codestyle { ## Run codestyle test
 	dockercompose-exec vendor/bin/ecs --config=development/tooling/ecs.php
 }
 
+function task:phpstan { ## Run PHPStan
+  dockercompose-exec vendor/bin/phpstan --configuration=./development/tooling/phpstan.neon
+}
+
 function task:tests { ## Run unit tests
 	dockercompose-exec vendor/bin/phpunit -c development/tooling/phpunit.xml --testdox tests
 }

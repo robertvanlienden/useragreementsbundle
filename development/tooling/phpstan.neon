@@ -1,0 +1,20 @@
+parameters:
+    level: 5
+    paths:
+        - ../../src
+        - ../../tests
+    ignoreErrors:
+### Ignore all Symfony/Doctrine errors
+        - '#Symfony\\.*#'
+        - '#Doctrine\\.*#'
+### Ignore warning about unused traits
+        - '#Trait .* is used zero times and is not analysed\.#'
+### Exclude some paths with Symfony specific things
+    excludePaths:
+        - ../../src/EventListener/DoctrineMetadataListener.php
+        - ../../src/Form
+        - ../../src/Repository
+includes:
+    - ../../vendor/phpstan/phpstan-symfony/extension.neon
+    - ../../vendor/phpstan/phpstan-symfony/rules.neon
+    - ../../vendor/phpstan/phpstan-doctrine/extension.neon
