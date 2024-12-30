@@ -13,7 +13,7 @@ Put this in your `config/packages/user_agreements.yaml`
 user_agreements:
   agreements:
     - id: "checkbox_field_id" ## ID for checkbox field
-      label: 'I agree with the terms and conditions'
+      label: 'I agree with the terms and conditions' ## Label for the form field
       route_name: 'terms_conditions_page' ## Symfony route name to the agreement
       required: true ## Required agreement or optional
       version: '1.0' ##Optional
