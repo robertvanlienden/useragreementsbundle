@@ -1,5 +1,6 @@
 # Robert van Lienden - User Agreements Bundle
 ![GitLab CI](https://github.com/robertvanlienden/useragreementsbundle/actions/workflows/workflow.yaml/badge.svg)
+[![codecov](https://codecov.io/github/robertvanlienden/useragreementsbundle/graph/badge.svg?token=Z00BLSB0LQ)](https://codecov.io/github/robertvanlienden/useragreementsbundle)
 
 A bundle to make user agreements simple.
 
