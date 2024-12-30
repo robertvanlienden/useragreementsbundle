@@ -15,6 +15,9 @@ class UserAgreement
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: false)]
+    private ?string $agreementId = null;
+
+    #[ORM\Column(length: 255, nullable: false)]
     private ?string $label = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -35,6 +38,16 @@ class UserAgreement
     public function setId(?int $id): void
     {
         $this->id = $id;
+    }
+
+    public function getAgreementId(): ?string
+    {
+        return $this->agreementId;
+    }
+
+    public function setAgreementId(?string $agreementId): void
+    {
+        $this->agreementId = $agreementId;
     }
 
     public function getLabel(): ?string

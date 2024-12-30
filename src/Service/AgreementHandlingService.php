@@ -50,6 +50,7 @@ class AgreementHandlingService
             }
 
             $agreement = new UserAgreement();
+            $agreement->setAgreementId($agreementFromConfig['id']);
             $agreement->setLabel($agreementFromConfig['label']);
             $agreement->setVersion($agreementFromConfig['version']);
             $agreement->setUser($user);
