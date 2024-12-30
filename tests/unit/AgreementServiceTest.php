@@ -16,8 +16,16 @@ class AgreementServiceTest extends TestCase
 
         $agreementsData = [
             'agreements' => [
-                ['label' => 'Privacy Policy', 'content' => 'Privacy content'],
-                ['label' => 'Terms of Service', 'content' => 'Terms content'],
+                [
+                    'id' => 'privacy_policy',
+                    'label' => 'Privacy Policy',
+                    'content' => 'Privacy content',
+                ],
+                [
+                    'id' => 'terms_of_service',
+                    'label' => 'Terms of Service',
+                    'content' => 'Terms content'
+                ],
             ],
         ];
 
@@ -33,13 +41,14 @@ class AgreementServiceTest extends TestCase
         $agreements = $this->agreementService->getAgreements();
 
         $this->assertCount(2, $agreements);
+        $this->assertArrayHasKey('id', $agreements[0]);
         $this->assertArrayHasKey('label', $agreements[0]);
         $this->assertArrayHasKey('content', $agreements[0]);
     }
 
     public function testFindAgreement(): void
     {
-        $agreement = $this->agreementService->findAgreement('Privacy Policy');
+        $agreement = $this->agreementService->findAgreement('privacy_policy');
 
         $this->assertNotNull($agreement);
         $this->assertEquals('Privacy Policy', $agreement['label']);
@@ -48,7 +57,7 @@ class AgreementServiceTest extends TestCase
 
     public function testFindAgreementNotFound(): void
     {
-        $agreement = $this->agreementService->findAgreement('not existing');
+        $agreement = $this->agreementService->findAgreement('not_existing');
 
         $this->assertNull($agreement);
     }

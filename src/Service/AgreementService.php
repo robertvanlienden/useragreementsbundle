@@ -18,9 +18,9 @@ class AgreementService
         return $this->agreements;
     }
 
-    public function findAgreement(string $label): ?array
+    public function findAgreement(string $id): ?array
     {
-        $arrayKey = array_search(strtolower($label), array_map('strtolower', array_column($this->agreements, 'label')));
+        $arrayKey = array_search(strtolower($id), array_map('strtolower', array_column($this->agreements, 'id')));
 
         return $arrayKey !== false ? $this->agreements[$arrayKey] : null;
     }
