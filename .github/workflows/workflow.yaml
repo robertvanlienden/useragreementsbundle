@@ -25,4 +25,4 @@ jobs:
 
       - name: Run codestyle tests
         run: |
-          docker run --rm php-ci ./Taskfile codestyle
+          docker run --rm php-ci vendor/bin/ecs --config=development/ecs.php
