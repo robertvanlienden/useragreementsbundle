@@ -8,7 +8,7 @@ use Symplify\EasyCodingStandard\Config\ECSConfig;
 
 return ECSConfig::configure()
     ->withPaths([
-        __DIR__ . '/../src',
+        __DIR__ . '/../../src',
     ])
 
     // add a single rule
