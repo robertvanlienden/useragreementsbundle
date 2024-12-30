@@ -11,6 +11,13 @@ RUN apk add --no-cache \
 
 WORKDIR /www
 
+RUN apk add linux-headers --no-cache $PHPIZE_DEPS --virtual .build-deps; \
+    pecl install xdebug; \
+    docker-php-ext-enable xdebug; \
+    apk del .build-deps;
+
+RUN echo "xdebug.mode=coverage" >> /usr/local/etc/php/conf.d/xdebug.ini;
+
 RUN set -eux; \
     COMPOSER_MEMORY_LIMIT=2G composer install --prefer-dist --no-scripts --no-progress; \
     composer clear-cache
