@@ -1,4 +1,6 @@
 # Robert van Lienden - User Agreements Bundle
+![GitLab CI](https://github.com/robertvanlienden/useragreementsbundle/actions/workflows/workflow.yaml/badge.svg)
+
 A bundle to make user agreements simple.
 
 Configure agreements, make them simple available with 1 form type and save the accepted agreements in the database.
