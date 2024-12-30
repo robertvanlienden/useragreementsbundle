@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Build Docker Image and run Codestyle tests
 
 on:
   push:
@@ -23,9 +23,6 @@ jobs:
         run: |
           docker build -f development/Dockerfile -t php-ci .
 
-      - name: Save Docker image as an artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: docker-image
-          path: |
-            $(docker save php-ci | gzip > image.tar.gz)
+      - name: Run codestyle tests
+        run: |
+          docker run --rm php-ci ./Taskfile codestyle
