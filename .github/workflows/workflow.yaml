@@ -25,8 +25,8 @@ jobs:
 
       - name: Run codestyle tests
         run: |
-          docker run --rm php-ci vendor/bin/ecs --config=development/ecs.php
+          docker run --rm php-ci vendor/bin/ecs --config=development/tooling/ecs.php
 
       - name: Run unit tests
         run: |
-          docker run --rm php-ci vendor/bin/phpunit --testdox tests
+          docker run --rm php-ci vendor/bin/phpunit -c development/tooling/phpunit.xml  --testdox tests

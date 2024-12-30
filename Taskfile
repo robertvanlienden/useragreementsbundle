@@ -50,11 +50,11 @@ function task:shell { ## Shell into PHP container
 ## Tests
 # =========================================================
 function task:codestyle { ## Run codestyle test
-	dockercompose-exec vendor/bin/ecs --config=development/ecs.php
+	dockercompose-exec vendor/bin/ecs --config=development/tooling/ecs.php
 }
 
 function task:tests { ## Run unit tests
-	dockercompose-exec vendor/bin/phpunit --testdox tests
+	dockercompose-exec vendor/bin/phpunit -c development/tooling/phpunit.xml --testdox tests
 }
 
 # =========================================================
