@@ -1,0 +1,28 @@
+name: Build Docker Image and run Codestyle tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker image
+        run: |
+          docker build -f development/Dockerfile -t php-ci .
+
+      - name: Run codestyle tests
+        run: |
+          docker run --rm php-ci vendor/bin/ecs --config=development/ecs.php

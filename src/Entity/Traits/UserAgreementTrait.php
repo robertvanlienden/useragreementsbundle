@@ -2,9 +2,9 @@
 
 namespace RobertvanLienden\UserAgreements\Entity\Traits;
 
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 use RobertvanLienden\UserAgreements\Entity\UserAgreement;
 
 trait UserAgreementTrait
@@ -24,7 +24,7 @@ trait UserAgreementTrait
 
     public function addUserAgreement(UserAgreement $userAgreement): self
     {
-        if (!$this->userAgreements->contains($userAgreement)) {
+        if (! $this->userAgreements->contains($userAgreement)) {
             $this->userAgreements[] = $userAgreement;
             $userAgreement->setUser($this);
         }

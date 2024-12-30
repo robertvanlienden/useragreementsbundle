@@ -2,7 +2,6 @@
 
 namespace RobertvanLienden\UserAgreements;
 
-use RobertvanLienden\UserAgreements\DependencyInjection\DoctrineMappingPass;
 use Symfony\Component\Config\Definition\Configurator\DefinitionConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -21,30 +20,30 @@ class UserAgreementsBundle extends AbstractBundle
     {
         // Configure agreements
         $definition->rootNode()
-                ->children()
-                    ->scalarNode('user_entity')
-                        ->defaultValue('App\Entity\User')
-                    ->end()
-                    ->arrayNode('agreements')
-                        ->arrayPrototype()
-                            ->children()
-                                ->scalarNode('label')
-                                ->isRequired()
-                                ->cannotBeEmpty()
-                                ->end()
-                                ->scalarNode('route_name')
-                                ->isRequired()
-                                ->cannotBeEmpty()
-                                ->end()
-                                ->booleanNode('required')
-                                ->isRequired()
-                                ->end()
-                                ->scalarNode('version')
-                                ->defaultValue('1.0')
-                                ->end()
-                        ->end()
-                    ->end()
-                ->end()
+            ->children()
+            ->scalarNode('user_entity')
+            ->defaultValue('App\Entity\User')
+            ->end()
+            ->arrayNode('agreements')
+            ->arrayPrototype()
+            ->children()
+            ->scalarNode('label')
+            ->isRequired()
+            ->cannotBeEmpty()
+            ->end()
+            ->scalarNode('route_name')
+            ->isRequired()
+            ->cannotBeEmpty()
+            ->end()
+            ->booleanNode('required')
+            ->isRequired()
+            ->end()
+            ->scalarNode('version')
+            ->defaultValue('1.0')
+            ->end()
+            ->end()
+            ->end()
+            ->end()
             ->end();
     }
 }

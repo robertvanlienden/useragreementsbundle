@@ -9,8 +9,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class AgreementHandlingService
 {
-    public function __construct(private EntityManagerInterface $entityManager, private AgreementService $agreementService)
-    {
+    public function __construct(
+        private EntityManagerInterface $entityManager,
+        private AgreementService $agreementService
+    ) {
     }
 
     /**
@@ -18,10 +20,12 @@ class AgreementHandlingService
      */
     public function handleAgreementsFromFormType(array $agreements, UserInterface $user, bool $flushEntities = false): void
     {
-        if (!in_array(UserAgreementTrait::class, class_uses(get_class($user)))) {
+        if (! in_array(UserAgreementTrait::class, class_uses(get_class($user)))) {
             throw new \InvalidArgumentException(
-                sprintf('User does not have the %s. This is needed to handle agreements',
-                    UserAgreementTrait::class)
+                sprintf(
+                    'User does not have the %s. This is needed to handle agreements',
+                    UserAgreementTrait::class
+                )
             );
         }
 
@@ -51,7 +55,7 @@ class AgreementHandlingService
     private function createUserAgreements(array $agreements, UserInterface $user): void
     {
         foreach ($agreements as $key => $value) {
-            if (!$value) {
+            if (! $value) {
                 continue;
             }
 

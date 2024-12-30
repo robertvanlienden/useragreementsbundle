@@ -8,8 +8,9 @@ use Doctrine\ORM\Events;
 
 class DoctrineMetadataListener implements EventSubscriber
 {
-    public function __construct(private string $userEntityClass)
-    {
+    public function __construct(
+        private string $userEntityClass
+    ) {
     }
 
     public function getSubscribedEvents()
