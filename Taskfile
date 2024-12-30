@@ -58,7 +58,11 @@ function task:phpstan { ## Run PHPStan
 }
 
 function task:tests { ## Run unit tests
-	dockercompose-exec vendor/bin/phpunit -c development/tooling/phpunit.xml --testdox tests
+	dockercompose-exec vendor/bin/phpunit -c development/tooling/phpunit.xml --testdox
+}
+
+function task:tests-with-coverage { ## Run unit tests with codestyle reports
+	dockercompose-exec vendor/bin/phpunit -c development/tooling/phpunit.xml --testdox --coverage-html coverage
 }
 
 # =========================================================

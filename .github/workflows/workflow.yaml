@@ -31,6 +31,12 @@ jobs:
         run: |
           docker run --rm php-ci vendor/bin/phpstan --configuration=./development/tooling/phpstan.neon
 
-      - name: Run unit tests
+      - name: Run unit tests with coverage
         run: |
-          docker run --rm php-ci vendor/bin/phpunit -c development/tooling/phpunit.xml  --testdox tests
+          docker run --rm -v $GITHUB_WORKSPACE:/workspace php-ci vendor/bin/phpunit -c development/tooling/phpunit.xml --testdox tests --coverage-clover=/workspace/coverage.xml
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+           token: ${{ secrets.CODECOV_TOKEN }}
+           slug: robertvanlienden/useragreementsbundle

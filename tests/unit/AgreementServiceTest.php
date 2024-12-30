@@ -2,10 +2,12 @@
 
 namespace RobertvanLienden\UserAgreements\Tests\Service;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use RobertvanLienden\UserAgreements\Service\AgreementService;
 use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
+#[CoversClass(AgreementService::class)]
 class AgreementServiceTest extends TestCase
 {
     private AgreementService $agreementService;
