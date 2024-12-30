@@ -12,7 +12,7 @@ RUN apk add --no-cache \
 WORKDIR /www
 
 RUN set -eux; \
-    COMPOSER_MEMORY_LIMIT=2G composer install --prefer-dist --no-autoloader --no-scripts --no-progress; \
+    COMPOSER_MEMORY_LIMIT=2G composer install --prefer-dist --no-scripts --no-progress; \
     composer clear-cache
 
 CMD ["sleep", "infinity"]

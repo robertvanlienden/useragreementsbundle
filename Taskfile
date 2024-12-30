@@ -23,9 +23,23 @@ function task:start { ## Start the project in development mode
 	dockercompose up -d
 }
 
+# =========================================================
+## Docker
+# =========================================================
+
 function task:build { ## Build docker compose file
 	title "Build docker compose"
 	dockercompose build
+}
+
+function task:restart { ## Docker compose restart
+	title "Stop docker compose"
+	dockercompose restart
+}
+
+function task:stop { ## Docker compose down
+	title "Stop docker compose"
+	dockercompose stop
 }
 
 function task:shell { ## Shell into PHP container
@@ -39,8 +53,12 @@ function task:codestyle { ## Run codestyle test
 	dockercompose-exec vendor/bin/ecs --config=development/ecs.php
 }
 
+function task:tests { ## Run unit tests
+	dockercompose-exec vendor/bin/phpunit --testdox tests
+}
+
 # =========================================================
-## Internal functions
+# Internal functions
 # =========================================================
 
 function dockercompose {

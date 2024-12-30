@@ -7,7 +7,8 @@
         "symfony/framework-bundle": "^6.4 || ^7.1"
     },
     "require-dev": {
-        "symplify/easy-coding-standard": "^12.5"
+        "symplify/easy-coding-standard": "^12.5",
+        "phpunit/phpunit": "^11"
     },
     "license": "MIT",
     "autoload": {

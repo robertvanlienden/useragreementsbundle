@@ -22,6 +22,6 @@ class AgreementService
     {
         $arrayKey = array_search(strtolower($label), array_map('strtolower', array_column($this->agreements, 'label')));
 
-        return $this->agreements[$arrayKey] ?? null;
+        return $arrayKey !== false ? $this->agreements[$arrayKey] : null;
     }
 }
