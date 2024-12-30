@@ -27,6 +27,10 @@ jobs:
         run: |
           docker run --rm php-ci vendor/bin/ecs --config=development/tooling/ecs.php
 
+      - name: Run PHPStan
+        run: |
+          docker run --rm php-ci vendor/bin/phpstan --configuration=./development/tooling/phpstan.neon
+
       - name: Run unit tests
         run: |
           docker run --rm php-ci vendor/bin/phpunit -c development/tooling/phpunit.xml  --testdox tests
