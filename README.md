@@ -20,7 +20,6 @@ user_agreements:
 [Read the docs for all options.](docs/00-index.md)
 
 ## To-do
-- [ ] Add codestyling/PHPStan
 - [ ] Add some unit tests
 
 ## Donations
