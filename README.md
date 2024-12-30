@@ -22,8 +22,5 @@ user_agreements:
 ### More options
 [Read the docs for all options.](docs/00-index.md)
 
-## To-do
-- [ ] Add some unit tests
-
 ## Donations
 Want to support me creating stuff like this? Consider donating with [PayPal](https://www.paypal.me/robertvanlienden).
