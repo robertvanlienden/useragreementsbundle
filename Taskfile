@@ -39,6 +39,10 @@ function task:codestyle { ## Run codestyle test
 	dockercompose-exec vendor/bin/ecs --config=development/ecs.php
 }
 
+function task:tests { ## Run unit tests
+	dockercompose-exec vendor/bin/phpunit --testdox tests
+}
+
 # =========================================================
 ## Internal functions
 # =========================================================
